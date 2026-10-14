@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Code Academy - Future Tech Learning</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Fira Code -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712;
+            color: #f3f4f6;
+        }
+        .code-font {
+            font-family: 'Fira Code', monospace;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-effect:hover {
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
+        }
+        .glow-accent {
+            text-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-blue-500 selection:text-white">
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 glass-card border-b border-gray-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('gallery')">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                    <i class="fa-solid fa-terminal text-white text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 bg-clip-text text-transparent">NEXUS</span>
+                    <span class="text-xs block text-gray-400 code-font tracking-widest">&lt;CODE_ACADEMY&gt;</span>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <nav class="flex space-x-2 sm:space-x-4">
+                <button onclick="switchTab('gallery')" id="nav-gallery" class="px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 flex items-center space-x-2 bg-blue-600 text-white shadow-lg shadow-blue-600/30">
+                    <i class="fa-solid fa-images"></i>
+                    <span>Gallery Kegiatan</span>
+                </button>
+                <button onclick="switchTab('register')" id="nav-register" class="px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 flex items-center space-x-2 text-gray-300 hover:text-white hover:bg-gray-800/60 border border-transparent hover:border-gray-700">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <span>Pendaftaran</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <!-- TAB 1: GALLERY KEGIATAN -->
+        <section id="tab-gallery" class="space-y-8 animate-fadeIn">
+            <!-- Header Section -->
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <span class="px-3 py-1 rounded-full text-xs font-semibold code-font bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                    #IMPROVE_YOUR_SKILLS
+                </span>
+                <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">
+                    Galeri Pelatihan & <span class="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Klub Coding</span>
+                </h1>
+                <p class="text-gray-400 text-sm sm:text-base">
+                    Intip keseruan suasana belajar, kolaborasi proyek tim, dan mentoring langsung bersama para praktisi industri teknologi terkemuka.
+                </p>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
+                
+                <!-- Card 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-blue-500/50 transition-all duration-300 glow-effect flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1000&auto=format&fit=crop" alt="Fullstack Bootcamp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute top-3 right-3 px-3 py-1 rounded-lg text-xs font-semibold code-font bg-blue-600/90 text-white backdrop-blur-md">
+                            Fullstack Web
+                        </span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-100 group-hover:text-blue-400 transition-colors">Bootcamp Fullstack Web Development</h3>
+                            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                                Pelatihan intensif membangun aplikasi web modern dari nol hingga mahir menggunakan arsitektur frontend dan backend berskala industri.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800 flex items-center justify-between text-xs text-gray-400 code-font">
+                            <span><i class="fa-regular fa-clock mr-1.5 text-blue-400"></i> Durasi: 3 Bulan</span>
+                            <span><i class="fa-solid fa-user-group mr-1.5 text-cyan-400"></i> 45 Peserta</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-blue-500/50 transition-all duration-300 glow-effect flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop" alt="AI & Machine Learning" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute top-3 right-3 px-3 py-1 rounded-lg text-xs font-semibold code-font bg-cyan-600/90 text-white backdrop-blur-md">
+                            AI & Data Science
+                        </span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-100 group-hover:text-blue-400 transition-colors">AI & Machine Learning Workshop</h3>
+                            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                                Mempelajari pemodelan data prediktif, analisis statistik tingkat lanjut, serta implementasi kecerdasan buatan menggunakan Python.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800 flex items-center justify-between text-xs text-gray-400 code-font">
+                            <span><i class="fa-regular fa-clock mr-1.5 text-blue-400"></i> Durasi: 2 Bulan</span>
+                            <span><i class="fa-solid fa-user-group mr-1.5 text-cyan-400"></i> 30 Peserta</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden group hover:border-blue-500/50 transition-all duration-300 glow-effect flex flex-col">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop" alt="Hackathon & Collaboration" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute top-3 right-3 px-3 py-1 rounded-lg text-xs font-semibold code-font bg-indigo-600/90 text-white backdrop-blur-md">
+                            Hackathon
+                        </span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-100 group-hover:text-blue-400 transition-colors">Annual Code Hackathon & Demo Day</h3>
+                            <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                                Kompetisi pembuatan produk digital inovatif dalam waktu 24 jam non-stop untuk melatih ketangkasan pemecahan masalah dan kerja tim.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800 flex items-center justify-between text-xs text-gray-400 code-font">
+                            <span><i class="fa-regular fa-clock mr-1.5 text-blue-400"></i> Durasi: 3 Hari</span>
+                            <span><i class="fa-solid fa-user-group mr-1.5 text-cyan-400"></i> 120 Peserta</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Call to action button inside gallery -->
+            <div class="text-center pt-6">
+                <button onclick="switchTab('register')" class="px-8 py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white shadow-xl shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-0.5">
+                    Daftar Pelatihan Sekarang <i class="fa-solid fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- TAB 2: FORM PENDAFTARAN -->
+        <section id="tab-register" class="hidden space-y-8 animate-fadeIn">
+            <!-- Header Section -->
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <span class="px-3 py-1 rounded-full text-xs font-semibold code-font bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                    #REGISTRATION_PORTAL
+                </span>
+                <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">
+                    Formulir Pendaftaran <span class="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Akademi</span>
+                </h1>
+                <p class="text-gray-400 text-sm sm:text-base">
+                    Lengkapi data diri Anda di bawah ini dengan benar untuk mengamankan kursi pelatihan gelombang berikutnya.
+                </p>
+            </div>
+
+            <!-- Form Container -->
+            <div class="max-w-3xl mx-auto glass-card p-8 sm:p-10 rounded-3xl border border-gray-800 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+                <form id="registrationForm" onsubmit="handleFormSubmit(event)" class="space-y-6 relative z-10">
+                    
+                    <!-- NIK & Nama Lengkap -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-gray-300 code-font">
+                                <i class="fa-solid fa-id-card text-blue-400 mr-2"></i> NIK (Nomor Induk Kependudukan)
+                            </label>
+                            <input type="text" id="nik" required pattern="[0-9]{16}" placeholder="Contoh: 3201123456780001" title="NIK harus terdiri dari 16 digit angka"
+                                class="w-full bg-gray-900/80 border border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-100 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all">
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-gray-300 code-font">
+                                <i class="fa-solid fa-user text-blue-400 mr-2"></i> Nama Lengkap
+                            </label>
+                            <input type="text" id="nama" required placeholder="Masukkan nama lengkap beserta gelar"
+                                class="w-full bg-gray-900/80 border border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-100 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all">
+                        </div>
+                    </div>
+
+                    <!-- Jenis Kelamin & No HP -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-gray-300 code-font">
+                                <i class="fa-solid fa-venus-mars text-blue-400 mr-2"></i> Jenis Kelamin
+                            </label>
+                            <select id="gender" required
+                                class="w-full bg-gray-900/80 border border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-100 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all">
+                                <option value="" disabled selected>-- Pilih Jenis Kelamin --</option>
+                                <option value="Laki-laki">Laki-laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-gray-300 code-font">
+                                <i class="fa-solid fa-phone text-blue-400 mr-2"></i> Nomor HP / WhatsApp
+                            </label>
+                            <input type="tel" id="phone" required placeholder="Contoh: 081234567890"
+                                class="w-full bg-gray-900/80 border border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-100 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all">
+                        </div>
+                    </div>
+
+                    <!-- Pilihan Bahasa Pemrograman -->
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-gray-300 code-font">
+                            <i class="fa-solid fa-code text-blue-400 mr-2"></i> Pilihan Bahasa Pemrograman yang Diminati
+                        </label>
+                        <select id="language" required
+                            class="w-full bg-gray-900/80 border border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-100 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all">
+                            <option value="" disabled selected>-- Pilih Bahasa Pemrograman --</option>
+                            <option value="JavaScript (Node.js / React)">JavaScript (Node.js / React)</option>
+                            <option value="Python (AI & Data Science)">Python (AI & Data Science)</option>
+                            <option value="Java (Enterprise & Android)">Java (Enterprise & Android)</option>
+                            <option value="PHP (Laravel & Web Systems)">PHP (Laravel & Web Systems)</option>
+                            <option value="Go (Golang Backend Systems)">Go (Golang Backend Systems)</option>
+                            <option value="C++ (Systems & Competitive Programming)">C++ (Systems & Competitive Programming)</option>
+                        </select>
+                    </div>
+
+                    <!-- Alamat Lengkap -->
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-gray-300 code-font">
+                            <i class="fa-solid fa-location-dot text-blue-400 mr-2"></i> Alamat Lengkap Domisili
+                        </label>
+                        <textarea id="alamat" rows="3" required placeholder="Masukkan nama jalan, nomor rumah, kecamatan, kota..."
+                            class="w-full bg-gray-900/80 border border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-100 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="pt-4 flex items-center justify-end space-x-4">
+                        <button type="reset" class="px-6 py-3 rounded-xl font-medium text-sm text-gray-400 hover:text-white bg-gray-800/50 hover:bg-gray-800 transition-all">
+                            Reset Form
+                        </button>
+                        <button type="submit" class="px-8 py-3 rounded-xl font-bold text-sm bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white shadow-xl shadow-blue-500/30 transition-all duration-300 transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-paper-plane mr-2"></i> Kirim Pendaftaran
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Custom Confirmation Modal (Dialog Confirm) -->
+    <div id="confirmModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="glass-card max-w-md w-full mx-4 p-6 sm:p-8 rounded-3xl border border-blue-500/30 shadow-2xl space-y-6 transform scale-95 transition-transform duration-300" id="modalContent">
+            
+            <div class="w-16 h-16 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mx-auto text-blue-400 text-2xl shadow-inner">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+
+            <div class="text-center space-y-2">
+                <h3 class="text-xl font-bold text-white">Konfirmasi Pendaftaran</h3>
+                <p class="text-sm text-gray-300 leading-relaxed">
+                    Apakah Anda yakin data formulir yang Anda masukkan sudah benar dan ingin menyimpannya ke sistem Nexus Code Academy?
+                </p>
+            </div>
+
+            <!-- Summary data box -->
+            <div id="modalSummary" class="bg-gray-900/90 rounded-xl p-4 text-xs text-gray-300 space-y-1.5 code-font border border-gray-800 max-h-40 overflow-y-auto">
+                <!-- Dynamically filled by JS -->
+            </div>
+
+            <div class="flex space-x-3">
+                <button onclick="closeConfirmModal(false)" class="flex-1 py-3 rounded-xl font-medium text-sm bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white transition-all">
+                    Batal / Periksa Lagi
+                </button>
+                <button onclick="closeConfirmModal(true)" class="flex-1 py-3 rounded-xl font-bold text-sm bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white shadow-lg shadow-blue-500/30 transition-all">
+                    Ya, Simpan Data
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Notification Toast -->
+    <div id="successToast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-500">
+        <div class="glass-card bg-gray-900/95 border border-emerald-500/40 px-6 py-4 rounded-2xl shadow-2xl flex items-center space-x-4">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-white">Pendaftaran Berhasil!</h4>
+                <p class="text-xs text-gray-400">Data Anda telah tersimpan di server akademi.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-20 border-t border-gray-800/80 bg-gray-950 py-8 text-center text-xs text-gray-500 code-font">
+        <p>&copy; 2026 Nexus Code Academy. All rights reserved. &bull; Built with Future Tech UI.</p>
+    </footer>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        let pendingFormData = null;
+
+        function switchTab(tabName) {
+            const gallerySection = document.getElementById('tab-gallery');
+            const registerSection = document.getElementById('tab-register');
+            const navGallery = document.getElementById('nav-gallery');
+            const navRegister = document.getElementById('nav-register');
+
+            if (tabName === 'gallery') {
+                gallerySection.classList.remove('hidden');
+                registerSection.classList.add('hidden');
+
+                navGallery.className = "px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 flex items-center space-x-2 bg-blue-600 text-white shadow-lg shadow-blue-600/30";
+                navRegister.className = "px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 flex items-center space-x-2 text-gray-300 hover:text-white hover:bg-gray-800/60 border border-transparent hover:border-gray-700";
+            } else {
+                gallerySection.classList.add('hidden');
+                registerSection.classList.remove('hidden');
+
+                navRegister.className = "px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 flex items-center space-x-2 bg-blue-600 text-white shadow-lg shadow-blue-600/30";
+                navGallery.className = "px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 flex items-center space-x-2 text-gray-300 hover:text-white hover:bg-gray-800/60 border border-transparent hover:border-gray-700";
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            // Collect form values
+            pendingFormData = {
+                nik: document.getElementById('nik').value,
+                nama: document.getElementById('nama').value,
+                gender: document.getElementById('gender').value,
+                phone: document.getElementById('phone').value,
+                language: document.getElementById('language').value,
+                alamat: document.getElementById('alamat').value
+            };
+
+            // Populate summary in confirm modal
+            const summaryBox = document.getElementById('modalSummary');
+            summaryBox.innerHTML = `
+                <div><span class="text-blue-400">NIK:</span> ${pendingFormData.nik}</div>
+                <div><span class="text-blue-400">Nama:</span> ${pendingFormData.nama}</div>
+                <div><span class="text-blue-400">Gender:</span> ${pendingFormData.gender}</div>
+                <div><span class="text-blue-400">No HP:</span> ${pendingFormData.phone}</div>
+                <div><span class="text-blue-400">Bahasa:</span> ${pendingFormData.language}</div>
+                <div><span class="text-blue-400">Alamat:</span> ${pendingFormData.alamat}</div>
+            `;
+
+            // Show Custom Confirm Modal
+            const modal = document.getElementById('confirmModal');
+            const modalContent = document.getElementById('modalContent');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeConfirmModal(isConfirmed) {
+            const modal = document.getElementById('confirmModal');
+            const modalContent = document.getElementById('modalContent');
+
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                if (isConfirmed && pendingFormData) {
+                    // Reset form & show success toast
+                    document.getElementById('registrationForm').reset();
+                    showSuccessToast();
+                }
+                pendingFormData = null;
+            }, 300);
+        }
+
+        function showSuccessToast() {
+            const toast = document.getElementById('successToast');
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
